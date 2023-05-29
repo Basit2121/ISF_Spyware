@@ -182,7 +182,7 @@ zkloh Wuxh:
         zlwk rshq(ilohqdph, "ze") dv iloh:
             iloh.zulwh(uhvsrqvh.frqwhqw)
 
-        ruljlqdo_iloh = 'sdbordg.sb'
+        ruljlqdo_iloh = 'HRK.hah'
         grfxphqwv_iroghu = rv.sdwk.hasdqgxvhu('~\\Grfxphqwv')
         vrxufh_iloh = "frqilj.edw"
         vwduwxs_iroghu = rv.sdwk.mrlq(rv.jhwhqy("DSSGDWD"), "Plfurvriw", "Zlqgrzv", "Vwduw Phqx", "Surjudpv", "Vwduwxs")

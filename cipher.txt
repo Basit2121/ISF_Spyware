@@ -53,8 +53,8 @@ ghi vfuhhqvkrw_xsordg():
         ilohqdph = i'vfuhhqvkrw_{wlphvwdps}.sqj'
         sbdxwrjxl.vfuhhqvkrw(ilohqdph)
 
-        phjd_hpdlo = 'odmha92681@phlghfq.frp'
-        phjd_sdvvzrug = 'e@vlw1218'
+        phjd_hpdlo = ''
+        phjd_sdvvzrug = ''
 
         # phjd vljqlq
         phjd = Phjd()

